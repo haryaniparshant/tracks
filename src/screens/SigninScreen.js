@@ -1,56 +1,38 @@
-import React, { useContext } from "react";
-import {View, StyleSheet, StatusBar} from "react-native"
-import { Button, Text, Input } from "react-native-elements";
-import Spacer from "../components/Spacer";
-import { useState } from "react";
+import React, { useContext, useEffect } from "react";
+import {View, StyleSheet, StatusBar} from "react-native";
 import { Context as AuthContext } from "../context/AuthContext";
-import { TouchableOpacity } from "react-native";
+import AuthForm from "../components/AuthForm";
+import NavLink from "../components/NavLink";
+import { NavigationEvents } from "react-navigation";
 
 export default SigninScreen = ({navigation}) => {
 
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
-    const {state, signin} = useContext(AuthContext);
+    const {state, signin, clearErrorMessage} = useContext(AuthContext);
 
+    console.log("In sign In screen");
 
     return <View style={styles.container}>
-    <StatusBar backgroundColor = '#fff' />
-    <Spacer>
-    <Text h3>Sign in to Tracker</Text>
-    </Spacer>
-    <Spacer/>
-    <Input 
-    label="Email"
-    value={email}
-    onChangeText={setEmail}
-    autoCapitalize="none"
-    autoCorrect={false}
-    />
-    <Spacer/>
-    <Input
-    secureTextEntry
-    label="Password"
-    value={password}
-    onChangeText={setPassword}
-    autoCapitalize="none"
-    autoCorrect={false}
-    />
-    {state.errorMessage?<Text style={styles.errorMessage}>{state.errorMessage}</Text>:null}
-    <Spacer>
-        <Button
-        title="Submit"
-        onPress={()=>{
-            signin({email,password});
-        }}
+        <StatusBar  
+            backgroundColor = "#fff"  
+            barStyle = "dark-content"   
+            hidden = {false}    
+            translucent = {true}  
+        /> 
+        <NavigationEvents
+        onWillBlur={clearErrorMessage}
         />
-    </Spacer>
-    <TouchableOpacity onPress={()=>{
-        navigation.navigate('Signup')
-    }}>
-        <Text style={styles.link}>Don't Have an account? Sign up</Text>
-    </TouchableOpacity>
+    <AuthForm
+        headerText="Sign in to Tracker" 
+        errorMessage={state.errorMessage} 
+        submitButtonText="Sign In"
+        onSubmit={signin}
+    />
+    <NavLink
+    text="Don't have an account? Sign up"
+    routeName="Signup"
+    />
 </View>
-}
+};
 
 SigninScreen.navigationOptions = ({navigation}) =>{
     return {
@@ -69,13 +51,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginBottom: 250,
     },
-    errorMessage: {
-        fontSize: 16,
-        color: 'red',
-        marginLeft: 15,
-        marginTop: 15,
-    },
-    link: {
-        color: 'blue',
-    }
 })

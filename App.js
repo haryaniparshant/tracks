@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'; 
 import { createStackNavigator } from 'react-navigation-stack';
@@ -12,9 +11,11 @@ import TrackDetailScreen from './src/screens/TrackDetailScreen';
 import TrackListScreen from './src/screens/TrackListScreen';
 import {Provider as AuthProvider} from './src/context/AuthContext'
 import { setNavigator } from './src/navigationRef';
+import ResolveAuthScreen from './src/screens/ResolveAuthScreen';
 
 
 const switchNavigator = createSwitchNavigator({
+  Resolve: ResolveAuthScreen,
   loginFlow: createStackNavigator({
     Signup: SignupScreen,
     Signin: SigninScreen,
@@ -25,12 +26,12 @@ const switchNavigator = createSwitchNavigator({
     trackListFlow: createStackNavigator({
       TrackList: TrackListScreen,
       TrackDetail: TrackDetailScreen,
-    },{
-      initialRouteName: 'TrackList',
     }),
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen,
   })
+},{
+  initialRouteName: 'Resolve',
 })
 
 

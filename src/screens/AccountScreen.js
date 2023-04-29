@@ -1,11 +1,36 @@
-import React from "react";
-import {View, StyleSheet, Text} from "react-native"
+import React, {useContext} from "react";
+import {View, StyleSheet, StatusBar} from "react-native"
+import { Button, Text } from "react-native-elements";
+import { Context as AuthContext } from "../context/AuthContext";
 
-export default AccountScreen = () => {
+export default AccountScreen = ({navigation}) => {
+    const {signout} = useContext(AuthContext);
+
     return <View style={styles.container}>
-        <Text>AccountScreen</Text>
+        <StatusBar  
+            backgroundColor = "#fff"  
+            barStyle = "dark-content"   
+            hidden = {false}    
+            translucent = {true}  
+        /> 
+        <Button
+        title="Sign Out"
+        onPress={() =>{
+            signout();
+        }}
+        />
     </View>
 }
+
+
+AccountScreen.navigationOptions = ({navigation}) =>{
+    return {
+      title: 'Account Screen',    
+      headerStyle: {
+        backgroundColor: 'royalblue'
+      },
+    };
+  }
 
 const styles = StyleSheet.create({
     container: {
