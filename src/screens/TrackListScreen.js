@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import {View, StyleSheet, Text, Button} from "react-native"
+import { Context as AuthContext } from "../context/AuthContext";
 
 export default TrackListScreen = ({navigation}) => {
+    const {signout} = useContext(AuthContext);
+
     return <View style={styles.container}>
         <Text>TrackListScreen</Text>
         <Button
@@ -9,6 +12,10 @@ export default TrackListScreen = ({navigation}) => {
         onPress={() =>{
             navigation.navigate('TrackDetail');
         }}
+        />
+        <Button
+        title="Sign Out"
+        onPress={signout}
         />
     </View>
 }

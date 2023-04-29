@@ -5,11 +5,9 @@ import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
 import { NavigationEvents } from "react-navigation";
 
-export default SigninScreen = ({navigation}) => {
+export default SigninScreen = () => {
 
     const {state, signin, clearErrorMessage} = useContext(AuthContext);
-
-    console.log("In sign In screen");
 
     return <View style={styles.container}>
         <StatusBar  
@@ -34,7 +32,7 @@ export default SigninScreen = ({navigation}) => {
 </View>
 };
 
-SigninScreen.navigationOptions = ({navigation}) =>{
+SigninScreen.navigationOptions = () =>{
     return {
       title: 'Sign in Page',    
       headerStyle: {

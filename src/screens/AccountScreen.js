@@ -3,7 +3,7 @@ import {View, StyleSheet, StatusBar} from "react-native"
 import { Button, Text } from "react-native-elements";
 import { Context as AuthContext } from "../context/AuthContext";
 
-export default AccountScreen = ({navigation}) => {
+export default AccountScreen = () => {
     const {signout} = useContext(AuthContext);
 
     return <View style={styles.container}>
@@ -15,22 +15,10 @@ export default AccountScreen = ({navigation}) => {
         /> 
         <Button
         title="Sign Out"
-        onPress={() =>{
-            signout();
-        }}
+        onPress={signout}
         />
     </View>
-}
-
-
-AccountScreen.navigationOptions = ({navigation}) =>{
-    return {
-      title: 'Account Screen',    
-      headerStyle: {
-        backgroundColor: 'royalblue'
-      },
-    };
-  }
+};
 
 const styles = StyleSheet.create({
     container: {

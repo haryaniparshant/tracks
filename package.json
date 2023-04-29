@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "1.17.11",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "github:react-navigation/native",
     "axios": "^1.4.0",
@@ -16,6 +17,7 @@
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.7",
+    "react-native-code-push": "^8.0.1",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.9.0",
     "react-native-paper": "^3.12.0",
@@ -26,8 +28,7 @@
     "react-navigation-material-bottom-tabs": "^2.3.5",
     "react-navigation-stack": "^2.10.4",
     "react-navigation-tabs": "^2.11.2",
-    "undefined": "github:react-navigation/native",
-    "@react-native-async-storage/async-storage": "1.17.11"
+    "undefined": "github:react-navigation/native"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

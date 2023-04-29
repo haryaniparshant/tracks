@@ -2,6 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import createDataContext from "./createDataContext";
 import tracker from "../api/tracker";
 import {navigate} from '../navigationRef'
+import { NativeModules } from "react-native";
+
 
 const authReducer = (state,action) => {
     switch (action.type) {
@@ -11,7 +13,7 @@ const authReducer = (state,action) => {
             return {errorMessage: '',token:action.payload};
         case 'clear_error_message':
             return {...state, errorMessage:''};
-        case 'sign_out':
+        case 'signout':
             return {token: null, errorMessage: ''};
         default:
             return state;
@@ -61,12 +63,11 @@ const signin = (dispatch) => async ({email, password})=>{
     }
 };
 
-const signout = (dispatch) => async ()=>{
-    // await AsyncStorage.removeItem('token');
-    // dispatch({type: 'sign_out'});
-    console.log("After Dispatch");
-    navigate('loginFlow');
-    console.log("After navigate"); 
+
+const signout = dispatch => async () =>{
+    await AsyncStorage.removeItem('token');
+    dispatch({type: 'signout'});
+    NativeModules.DevSettings.reload();
 };
 
 export const {Provider, Context} = createDataContext(

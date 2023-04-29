@@ -26,12 +26,16 @@ const switchNavigator = createSwitchNavigator({
     trackListFlow: createStackNavigator({
       TrackList: TrackListScreen,
       TrackDetail: TrackDetailScreen,
+    },{
+      initialRouteName: 'TrackList',
     }),
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen,
+  },{
+    initialRouteName: 'trackListFlow',
   })
 },{
-  initialRouteName: 'Resolve',
+  initialRouteName: 'Resolve'
 })
 
 
