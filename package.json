@@ -28,7 +28,9 @@
     "react-navigation-material-bottom-tabs": "^2.3.5",
     "react-navigation-stack": "^2.10.4",
     "react-navigation-tabs": "^2.11.2",
-    "undefined": "github:react-navigation/native"
+    "undefined": "github:react-navigation/native",
+    "expo-location": "~15.1.1",
+    "react-native-maps": "1.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

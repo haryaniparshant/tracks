@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import MapView, {Polyline} from 'react-native-maps';
+import { requestForegroundPermissionsAsync, getCurrentPositionAsync, requestBackgroundPermissionsAsync } from "expo-location";
 
 
 export default Mymap = () => {
@@ -15,8 +16,8 @@ export default Mymap = () => {
     return <MapView 
     style={styles.map}
     initialRegion={{
-        latitude: 37.33233,
-        longitude: -122.03121,
+        latitude: 24.8376369,
+        longitude: 67.0285089,
         latitudeDelta: 0.01,
         longitudeDelta: 0.1,
     }}
