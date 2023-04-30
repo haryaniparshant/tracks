@@ -2,11 +2,16 @@ import React, {useContext} from "react";
 import {View, StyleSheet, StatusBar} from "react-native"
 import { Button, Text } from "react-native-elements";
 import { Context as AuthContext } from "../context/AuthContext";
+import { SafeAreaView } from "react-navigation";
+import SafeViewAndroid from "../components/SafeViewAndroid";
+
 
 export default AccountScreen = () => {
     const {signout} = useContext(AuthContext);
 
-    return <View style={styles.container}>
+    return <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
+    <Text h2>Account Screen</Text>
+    <View style={styles.container}>
         <StatusBar  
             backgroundColor = "#fff"  
             barStyle = "dark-content"   
@@ -18,6 +23,8 @@ export default AccountScreen = () => {
         onPress={signout}
         />
     </View>
+    </SafeAreaView>
+    
 };
 
 const styles = StyleSheet.create({

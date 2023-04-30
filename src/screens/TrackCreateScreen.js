@@ -1,11 +1,16 @@
 import React from "react";
-import {View, StyleSheet, Text} from "react-native"
+import {View, StyleSheet} from "react-native"
 import TrackDetailScreen from "./TrackDetailScreen";
+import Mymap from "../components/Mymap";
+import { SafeAreaView } from "react-native";
+import SafeViewAndroid from "../components/SafeViewAndroid";
+import { Text } from "react-native-elements";
 
 export default TrackCreateScreen = () => {
-    return <View style={styles.container}>
-        <Text>TrackCreateScreen</Text>
-    </View>
+    return <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
+        <Text h2>TrackCreateScreen</Text>
+        <Mymap/>
+    </SafeAreaView>
 }
 
 const styles = StyleSheet.create({
