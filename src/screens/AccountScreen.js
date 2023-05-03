@@ -27,6 +27,10 @@ export default AccountScreen = () => {
     
 };
 
+AccountScreen.navigationOptions = {
+    title: 'Account',
+};
+
 const styles = StyleSheet.create({
     container: {
         font: 12,
